@@ -18,3 +18,91 @@ phát hiện hallucination
 kiểm tra chất lượng retrieval
 chấm trust score cho từng response
 xác định khu vực hệ thống đang fail
+
+#2. Customer / Segment Card
+
+
+Segment name: Enterprise AI Team / Internal RAG Owners
+
+
+Operational context: Doanh nghiệp lớn (ngân hàng, bảo hiểm, bất động sản, bán lẻ…) đang triển khai chatbot nội bộ hoặc Enterprise Search dùng RAG để hỗ trợ nhân viên tra cứu thông tin.
+
+
+Recurring workflow:
+Build chatbot → test trước release → deploy nội bộ → nhân viên sử dụng hằng ngày → team xử lý khi phát sinh câu trả lời sai.
+
+
+Pain moment:
+Không biết chatbot đang trả lời đúng hay sai sau khi go-live, chỉ phát hiện khi người dùng phàn nàn hoặc xảy ra lỗi nghiệp vụ.
+
+
+Why now:
+Doanh nghiệp đang đầu tư mạnh vào GenAI nhưng thiếu lớp đánh giá và kiểm soát chất lượng sau deployment.
+
+
+Access path:
+CIO Office, Head of AI, Data Team, Product Owner, AI Transformation Team
+
+### Need #3 (optional)
+Statement (JTBD)
+
+Khi chatbot trả lời sai, tôi muốn biết nguyên nhân gốc nằm ở retrieval, prompt hay dữ liệu nguồn để có thể sửa nhanh và chính xác.
+
+Current workaround:
+Team kỹ thuật kiểm tra thủ công prompt, vector DB, chunking và source documents.
+Pain signal:
+Mất nhiều thời gian debug, nhiều team cùng tham gia nhưng vẫn khó xác định nguyên nhân thật sự.
+Evidence / proxy evidence:
+RAG failures thường khó xác định do lỗi có thể đến từ nhiều tầng khác nhau.
+Why underserved:
+Hiện chưa có công cụ nào kết nối rõ giữa lỗi business và nguyên nhân kỹ thuật trong hệ thống RAG.
+#4. Strategy Statement
+
+For enterprise AI teams
+who cannot kiểm soát chất lượng câu trả lời của chatbot RAG sau khi deployment,
+our product helps them đánh giá độ tin cậy, phát hiện hallucination và cải thiện chất lượng hệ thống
+through continuous answer evaluation, trust scoring và root-cause analysis,
+unlike manual QA hoặc các tool observability truyền thống,
+because we focus directly on answer trustworthiness at business level.
+
+#5. Moat Hypothesis
+Moat mechanism: Domain-learning flywheel
+
+Càng triển khai cho nhiều doanh nghiệp, TrustLayer AI càng học được nhiều pattern lỗi thực tế của RAG trong từng ngành như ngân hàng, bảo hiểm, bất động sản.
+
+Điều này giúp:
+
+phát hiện hallucination chính xác hơn
+trust score phù hợp hơn theo từng domain
+rút ngắn thời gian onboarding khách hàng mới
+Why competitors cannot easily replicate this:
+
+Lợi thế nằm ở dữ liệu failure thực tế và feedback từ doanh nghiệp — thứ rất khó sao chép nhanh chỉ bằng công nghệ chung.
+
+#6. Initial TAM / SAM / SOM view
+Layer	Estimate	Key assumptions	Confidence
+TAM	$8B+ / year	Thị trường AI Governance + LLMOps toàn cầu	Medium
+SAM	$1–2B / year	Doanh nghiệp đang triển khai RAG nội bộ tại các ngành regulated	Medium
+SOM	$10–20M / year	Giai đoạn đầu tập trung Việt Nam + SEA (BFSI, Real Estate)	Low
+Top 3 unknowns requiring further research:
+Doanh nghiệp sẵn sàng trả bao nhiêu cho lớp đánh giá trust này?
+Budget thuộc CIO, Data team hay Compliance team?
+Khách hàng ưu tiên hallucination detection hay root-cause analysis hơn?
+Judgment:
+ Worth pursuing now
+ Worth pursuing but not now
+ Not worth pursuing as currently framed
+#7. Positioning Note (2 sentences)
+What we are:
+
+TrustLayer AI là lớp Trust Infrastructure cho hệ thống RAG doanh nghiệp, giúp đánh giá mức độ đáng tin cậy của từng câu trả lời trước khi người dùng mất niềm tin.
+
+What we are not:
+
+Chúng tôi không phải chatbot builder hay vector database platform; chúng tôi là lớp kiểm soát chất lượng và niềm tin cho AI đã triển khai.
+
+#8. Self-assessment before Day 17
+
+Điểm yếu nhất hiện tại là phần Market Size và Pricing Validation.
+
+Chúng tôi đã xác định rõ pain point và customer need, nhưng vẫn cần hiểu sâu hơn về willingness-to-pay, buyer thực sự là ai và đâu là wedge feature mạnh nhất để khách hàng sẵn sàng trả tiền.
