@@ -95,10 +95,10 @@ Why competitors cannot easily replicate
 Lợi thế nằm ở dữ liệu lỗi thực tế và feedback doanh nghiệp — thứ rất khó sao chép nhanh chỉ bằng công nghệ chung.
 
 6. Initial TAM / SAM / SOM View
-Layer	Estimate	Key assumptions	Confidence
-TAM	$8B+ / năm	Thị trường AI Governance + LLMOps toàn cầu	Medium
-SAM	$1–2B / năm	Doanh nghiệp đang triển khai RAG nội bộ ở các ngành regulated	Medium
-SOM	$10–20M / năm	Giai đoạn đầu tập trung Việt Nam + SEA	Low
+Layer	Key assumptions	Confidence
+TAM	Thị trường AI Governance + LLMOps toàn cầu	Medium
+SAM	Doanh nghiệp đang triển khai RAG nội bộ ở các ngành regulated	Medium
+SOM	Giai đoạn đầu tập trung Việt Nam + SEA	Low
 Top 3 unknowns
 Doanh nghiệp sẵn sàng trả bao nhiêu cho lớp đánh giá trust này?
 Budget thuộc CIO, Data Team hay Compliance Team?
