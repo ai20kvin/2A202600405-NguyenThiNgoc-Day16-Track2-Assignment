@@ -1,0 +1,20 @@
+#1. Idea reframed
+Original idea:
+
+Xây dựng AI Agent đóng vai trò “Trust Layer” cho hệ thống RAG / Enterprise Search nội bộ, giúp đánh giá chất lượng câu trả lời của chatbot sau khi đã triển khai.
+
+Reframed as a product opportunity:
+
+Các hệ thống RAG nội bộ thường được test trước khi release, nhưng bộ test nhỏ và khó bao quát hết các câu hỏi thực tế của nhân viên.
+
+Khi đưa vào sử dụng, chatbot dễ gặp các câu hỏi phức tạp, mơ hồ hoặc ngoài dự đoán, dẫn đến trả lời sai, hallucination hoặc thiếu nguồn dẫn chứng mà doanh nghiệp không phát hiện kịp thời.
+
+Hậu quả là người dùng mất niềm tin, doanh nghiệp không dám scale AI và tăng rủi ro vận hành.
+
+TrustLayer AI giải quyết vấn đề này bằng cách giám sát và đánh giá liên tục sau deployment:
+
+phát hiện hallucination
+đánh giá độ chính xác câu trả lời
+kiểm tra chất lượng retrieval
+chấm trust score cho từng response
+xác định khu vực hệ thống đang fail
