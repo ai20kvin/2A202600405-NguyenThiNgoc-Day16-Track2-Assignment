@@ -1,18 +1,19 @@
-Day 16 Submission – TrustLayer AI 
+Day 16 Submission – TrustLayer AI
+
 Nguyễn Thị Ngọc – 2A202600405
 
-#1. Idea reframed
-Original idea:
+1. Idea Reframed
+Ý tưởng ban đầu
 
 Xây dựng AI Agent đóng vai trò “Trust Layer” cho hệ thống RAG / Enterprise Search nội bộ, giúp đánh giá chất lượng câu trả lời của chatbot sau khi đã triển khai.
 
-Reframed as a product opportunity:
+Cơ hội sản phẩm
 
-Các hệ thống RAG nội bộ thường được test trước khi release, nhưng bộ test nhỏ và khó bao quát hết các câu hỏi thực tế của nhân viên.
+Các hệ thống RAG nội bộ thường được kiểm thử trước khi release, nhưng bộ test thường nhỏ và khó bao quát hết các câu hỏi thực tế của người dùng.
 
-Khi đưa vào sử dụng, chatbot dễ gặp các câu hỏi phức tạp, mơ hồ hoặc ngoài dự đoán, dẫn đến trả lời sai, hallucination hoặc thiếu nguồn dẫn chứng mà doanh nghiệp không phát hiện kịp thời.
+Khi vận hành thực tế, chatbot dễ gặp các câu hỏi phức tạp, mơ hồ hoặc ngoài dự đoán, dẫn đến trả lời sai, hallucination hoặc thiếu nguồn dẫn chứng mà doanh nghiệp không phát hiện kịp thời.
 
-Hậu quả là người dùng mất niềm tin, doanh nghiệp không dám scale AI và tăng rủi ro vận hành.
+Hậu quả là người dùng mất niềm tin, doanh nghiệp không dám mở rộng AI và tăng rủi ro vận hành.
 
 TrustLayer AI giải quyết vấn đề này bằng cách giám sát và đánh giá liên tục sau deployment:
 
@@ -20,55 +21,66 @@ phát hiện hallucination
 đánh giá độ chính xác câu trả lời
 kiểm tra chất lượng retrieval
 chấm trust score cho từng response
-xác định khu vực hệ thống đang fail
+xác định khu vực hệ thống đang lỗi
+2. Customer / Segment Card
+Segment name
 
-#2. Customer / Segment Card
+Enterprise AI Team / Internal RAG Owners
 
+Operational context
 
-Segment name: Enterprise AI Team / Internal RAG Owners
+Doanh nghiệp lớn (ngân hàng, bảo hiểm, bất động sản, bán lẻ…) đang triển khai chatbot nội bộ hoặc Enterprise Search dùng RAG để hỗ trợ nhân viên tra cứu thông tin.
 
+Recurring workflow
 
-Operational context: Doanh nghiệp lớn (ngân hàng, bảo hiểm, bất động sản, bán lẻ…) đang triển khai chatbot nội bộ hoặc Enterprise Search dùng RAG để hỗ trợ nhân viên tra cứu thông tin.
+Build chatbot → test trước release → deploy nội bộ → nhân viên sử dụng hằng ngày → team xử lý khi phát sinh lỗi trả lời sai.
 
+Pain moment
 
-Recurring workflow:
-Build chatbot → test trước release → deploy nội bộ → nhân viên sử dụng hằng ngày → team xử lý khi phát sinh câu trả lời sai.
-
-
-Pain moment:
 Không biết chatbot đang trả lời đúng hay sai sau khi go-live, chỉ phát hiện khi người dùng phàn nàn hoặc xảy ra lỗi nghiệp vụ.
 
+Why now
 
-Why now:
 Doanh nghiệp đang đầu tư mạnh vào GenAI nhưng thiếu lớp đánh giá và kiểm soát chất lượng sau deployment.
 
+Access path
 
-Access path:
 CIO Office, Head of AI, Data Team, Product Owner, AI Transformation Team
 
-### Need #3 (optional)
+3. Need #3 (Optional)
 Statement (JTBD)
 
 Khi chatbot trả lời sai, tôi muốn biết nguyên nhân gốc nằm ở retrieval, prompt hay dữ liệu nguồn để có thể sửa nhanh và chính xác.
 
-Current workaround:
+Current workaround
+
 Team kỹ thuật kiểm tra thủ công prompt, vector DB, chunking và source documents.
-Pain signal:
+
+Pain signal
+
 Mất nhiều thời gian debug, nhiều team cùng tham gia nhưng vẫn khó xác định nguyên nhân thật sự.
-Evidence / proxy evidence:
-RAG failures thường khó xác định do lỗi có thể đến từ nhiều tầng khác nhau.
-Why underserved:
+
+Evidence
+
+RAG failures thường đến từ nhiều tầng khác nhau nên rất khó xác định chính xác lỗi.
+
+Why underserved
+
 Hiện chưa có công cụ nào kết nối rõ giữa lỗi business và nguyên nhân kỹ thuật trong hệ thống RAG.
-#4. Strategy Statement
 
-For enterprise AI teams
-who cannot kiểm soát chất lượng câu trả lời của chatbot RAG sau khi deployment,
-our product helps them đánh giá độ tin cậy, phát hiện hallucination và cải thiện chất lượng hệ thống
-through continuous answer evaluation, trust scoring và root-cause analysis,
-unlike manual QA hoặc các tool observability truyền thống,
-because we focus directly on answer trustworthiness at business level.
+4. Strategy Statement
 
-#5. Moat Hypothesis
+Dành cho các team AI doanh nghiệp đang khó kiểm soát chất lượng chatbot RAG sau deployment,
+
+TrustLayer AI giúp đánh giá độ tin cậy, phát hiện hallucination và cải thiện chất lượng hệ thống
+
+thông qua continuous evaluation, trust scoring và root-cause analysis,
+
+khác với manual QA hoặc các tool observability truyền thống,
+
+vì chúng tôi tập trung trực tiếp vào độ tin cậy của câu trả lời ở góc nhìn business.
+
+5. Moat Hypothesis
 Moat mechanism: Domain-learning flywheel
 
 Càng triển khai cho nhiều doanh nghiệp, TrustLayer AI càng học được nhiều pattern lỗi thực tế của RAG trong từng ngành như ngân hàng, bảo hiểm, bất động sản.
@@ -78,34 +90,34 @@ Càng triển khai cho nhiều doanh nghiệp, TrustLayer AI càng học đượ
 phát hiện hallucination chính xác hơn
 trust score phù hợp hơn theo từng domain
 rút ngắn thời gian onboarding khách hàng mới
-Why competitors cannot easily replicate this:
+Why competitors cannot easily replicate
 
-Lợi thế nằm ở dữ liệu failure thực tế và feedback từ doanh nghiệp — thứ rất khó sao chép nhanh chỉ bằng công nghệ chung.
+Lợi thế nằm ở dữ liệu lỗi thực tế và feedback doanh nghiệp — thứ rất khó sao chép nhanh chỉ bằng công nghệ chung.
 
-#6. Initial TAM / SAM / SOM view
+6. Initial TAM / SAM / SOM View
 Layer	Estimate	Key assumptions	Confidence
-TAM	$8B+ / year	Thị trường AI Governance + LLMOps toàn cầu	Medium
-SAM	$1–2B / year	Doanh nghiệp đang triển khai RAG nội bộ tại các ngành regulated	Medium
-SOM	$10–20M / year	Giai đoạn đầu tập trung Việt Nam + SEA (BFSI, Real Estate)	Low
-Top 3 unknowns requiring further research:
+TAM	$8B+ / năm	Thị trường AI Governance + LLMOps toàn cầu	Medium
+SAM	$1–2B / năm	Doanh nghiệp đang triển khai RAG nội bộ ở các ngành regulated	Medium
+SOM	$10–20M / năm	Giai đoạn đầu tập trung Việt Nam + SEA	Low
+Top 3 unknowns
 Doanh nghiệp sẵn sàng trả bao nhiêu cho lớp đánh giá trust này?
-Budget thuộc CIO, Data team hay Compliance team?
+Budget thuộc CIO, Data Team hay Compliance Team?
 Khách hàng ưu tiên hallucination detection hay root-cause analysis hơn?
-Judgment:
- Worth pursuing now
- Worth pursuing but not now
- Not worth pursuing as currently framed
-#7. Positioning Note (2 sentences)
-What we are:
+Judgment
+
+✔ Worth pursuing now
+
+7. Positioning Note
+What we are
 
 TrustLayer AI là lớp Trust Infrastructure cho hệ thống RAG doanh nghiệp, giúp đánh giá mức độ đáng tin cậy của từng câu trả lời trước khi người dùng mất niềm tin.
 
-What we are not:
+What we are not
 
 Chúng tôi không phải chatbot builder hay vector database platform; chúng tôi là lớp kiểm soát chất lượng và niềm tin cho AI đã triển khai.
 
-#8. Self-assessment before Day 17
+8. Self-assessment before Day 17
 
-Điểm yếu nhất hiện tại là phần Market Size và Pricing Validation.
+Điểm yếu nhất hiện tại là Market Size và Pricing Validation.
 
-Chúng tôi đã xác định rõ pain point và customer need, nhưng vẫn cần hiểu sâu hơn về willingness-to-pay, buyer thực sự là ai và đâu là wedge feature mạnh nhất để khách hàng sẵn sàng trả tiền.
+Chúng tôi đã xác định rõ pain point và customer need, nhưng vẫn cần hiểu sâu hơn về willingness-to-pay, buyer thực sự là ai và feature nào đủ mạnh để khách hàng sẵn sàng trả tiền.
