@@ -1,0 +1,137 @@
+# Day 16 Submission – TrustLayer AI
+
+**Nguyễn Thị Ngọc – 2A202600405**
+
+## 1. Idea Reframed
+
+### Ý tưởng ban đầu
+Xây dựng AI Agent đóng vai trò "Trust Layer" cho hệ thống RAG / Enterprise Search nội bộ, giúp đánh giá độ tin cậy của câu trả lời chatbot sau khi đã triển khai.
+
+### Cơ hội sản phẩm
+Các hệ thống RAG thường được test trước release nhưng bộ test nhỏ, khó bao quát hết tình huống thực tế sau go-live.
+
+Khi vận hành, chatbot dễ gặp:
+- hallucination 
+- trả lời sai nghiệp vụ 
+- thiếu nguồn dẫn chứng 
+- trả lời tự tin nhưng sai 
+
+Doanh nghiệp thường chỉ phát hiện khi:
+- người dùng phàn nàn 
+- xảy ra lỗi nghiệp vụ 
+- phát sinh sự cố compliance 
+
+**Hậu quả lớn nhất là:** mất niềm tin và không dám mở rộng AI
+
+**TrustLayer AI hoạt động như:** lớp QA cho câu trả lời của AI. Giúp:
+- phát hiện hallucination 
+- đánh giá độ chính xác 
+- kiểm tra retrieval 
+- chấm Trust Score 
+- xác định root cause 
+- cảnh báo Human Review 
+
+## 2. Customer / Segment Card
+
+### Khách hàng mục tiêu
+Doanh nghiệp lớn trong ngành rủi ro cao:
+- ngân hàng 
+- bảo hiểm 
+- healthcare 
+- bất động sản 
+
+đã triển khai chatbot nội bộ / Enterprise Search dùng RAG.
+
+### Người mua chính
+**Head of AI / CIO Office**
+Người chịu trách nhiệm rollout GenAI và phải trả lời: AI này có đủ an toàn để deploy không?
+
+### Người duyệt ngân sách
+**Chief Risk Officer / Compliance Head**
+Người chịu trách nhiệm về:
+- compliance 
+- operational risk 
+- audit accountability 
+
+### Pain Moment
+Không biết chatbot đang trả lời đúng hay sai sau go-live. Chỉ phát hiện khi đã có hậu quả thật.
+
+### Why Now
+Doanh nghiệp triển khai AI nhanh nhưng chưa có lớp kiểm soát trust sau deployment.
+
+## 3. Need #3 (JTBD)
+
+### Nhu cầu
+Khi chatbot trả lời sai, tôi muốn biết lỗi nằm ở retrieval, prompt hay dữ liệu nguồn để sửa nhanh và đúng chỗ.
+
+### Pain
+- debug rất lâu 
+- nhiều team cùng xử lý 
+- vẫn khó tìm root cause 
+- lỗi lặp lại nhiều lần 
+
+### Gap thị trường
+Tool hiện tại chỉ giúp engineer theo dõi metrics.
+Chưa giải quyết rõ: lỗi business → nguyên nhân kỹ thuật.
+
+## 4. Strategy Statement
+
+TrustLayer AI giúp doanh nghiệp xác định khi nào KHÔNG nên tin vào câu trả lời của AI bằng cách phát hiện hallucination, kiểm tra độ tin cậy của nguồn và chuyển các câu trả lời rủi ro cao sang Human Review trước khi gây thiệt hại.
+
+Khác với observability tools chỉ giúp debug prompt, TrustLayer giúp lãnh đạo quản lý: deployment risk + compliance + accountability
+
+## 5. Moat Hypothesis
+
+### Lợi thế cạnh tranh
+**Domain Learning + Workflow Lock-in**
+
+Càng triển khai nhiều, hệ thống càng học được nhiều pattern lỗi RAG theo từng ngành:
+- banking 
+- insurance 
+- healthcare 
+
+giúp:
+- Trust Score chính xác hơn 
+- root-cause analysis nhanh hơn 
+- onboarding khách hàng mới nhanh hơn 
+
+Khi đã tích hợp vào:
+- compliance flow 
+- audit trail 
+- human review process 
+
+thì rất khó thay thế.
+
+→ vừa có data moat, vừa có operational moat.
+
+## 6. TAM / SAM / SOM
+
+| Layer | Giả định |
+|-------|----------|
+| TAM | AI Governance + LLMOps toàn cầu |
+| SAM | Doanh nghiệp regulated dùng RAG nội bộ |
+| SOM | Giai đoạn đầu: ngân hàng + bảo hiểm tại Việt Nam |
+
+### 3 điều cần validate
+1. Khách hàng sẵn sàng trả bao nhiêu? 
+2. Budget thuộc AI Team hay Compliance Team? 
+3. Họ ưu tiên hallucination detection hay root-cause analysis hơn? 
+
+## 7. Positioning Note
+
+### What we are
+Trust Infrastructure cho hệ thống RAG doanh nghiệp. Giúp đánh giá độ tin cậy của từng câu trả lời trước khi gây thiệt hại.
+
+### What we are not/ not yet
+- chatbot builder 
+- vector database 
+- prompt debugging tool 
+
+## 8. Self-assessment
+
+**Điểm yếu lớn nhất hiện tại:** Pricing Validation + Buyer Validation
+
+Cần xác thực rõ:
+- ai thật sự ký PO 
+- willingness-to-pay 
+- feature nào đủ mạnh để khách hàng trả tiền ngay
